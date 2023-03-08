@@ -80,13 +80,13 @@
 	<!-- 달력 예약현황 가져오기 -->
 	<select id="ReservedCell" resultType="com.puppycafe.root.Dto.ReservedCellDto">
 	 
-	select substr(rdate,-2) as day,
-			rstarthour,
- 			count(rstarthour)amount 
-	from CAFE_RESERVED 
-	where rdate like #{param1}||'%' 
-	group by substr(rdate,-2),rstarthour
-	order by rstarthour
+			select substr(rdate,-2) as day,
+					rstarthour,
+		 			count(rstarthour)amount 
+			from CAFE_RESERVED 
+			where rdate like #{param1}||'%' 
+			group by substr(rdate,-2),rstarthour
+			order by rstarthour
 	</select>
 	<!-- 예약하기 -->
 	<insert id="cafeReserved">
