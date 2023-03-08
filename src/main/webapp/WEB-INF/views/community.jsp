@@ -46,23 +46,24 @@
                         <tr>
                            <td class="board_content01">${bdto.bnum }</td>
                            <td class="board_content01">${bdto.bid }</td>
-                           <td class="board_content01"><a href="contentView?bnum=${bdto.bnum }">${bdto.btitle }</a></td>
+                           <td class="board_content01"><a href="contentView?bnum=${bdto.bnum }">
+                           <c:choose>
+                              <c:when test="${fn:length(bdto.btitle) > 20 }">
+                                 <c:out value="${fn:substring(bdto.btitle,0,19) }"></c:out>...
+                              </c:when>
+                              <c:otherwise>
+                                 <c:out value="${bdto.btitle }"></c:out>
+                              </c:otherwise>
+                           </c:choose></a></td>
                            <td class="board_content01">
                            <c:out value="${fn:substring(bdto.bdate,0,10) }"></c:out>                              
                            </td>
                            <a href="questionView?bnum=${bdto.bnum }">
-                           <!-- 
-                           <c:choose>
-                              <c:when test="${fn:length(bdto.bcontent) > 23 }">
-                                 <c:out value="${fn:substring(bdto.bcontent,0,22) }"></c:out>...
-                              </c:when>
-                              <c:otherwise>
-                                 <c:out value="${bdto.bcontent }"></c:out>
-                              </c:otherwise>
-                           </c:choose>
+                            
+                           
                            </a>
                            </td>
-                            -->
+                            
                            
                            
                         </tr>                  
