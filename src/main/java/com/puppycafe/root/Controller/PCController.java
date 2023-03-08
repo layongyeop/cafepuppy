@@ -65,7 +65,7 @@ public class PCController {
 		PCDao dao = sqlSession.getMapper(PCDao.class);
 		
 		int totalRecord = dao.boardAllCount();
-		
+		cri.setAmount(10); // 한 페이지에 보여줄 글 수
 		cri.setStartNum(cri.getPageNum()-1 * cri.getAmount());//해당 페이지의 시작번호를 설정
 		PageDto pageDto = new PageDto(cri, totalRecord);
 		model.addAttribute("pageMaker", pageDto);
