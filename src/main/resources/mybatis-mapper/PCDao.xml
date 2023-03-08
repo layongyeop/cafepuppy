@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.puppycafe.root.Dao.PCDao">
+	<!-- 멤버 가입 -->
+	<insert id="memberInsert" >
+		INSERT INTO cafe_member(mid, mpw, mname, mphone) VALUES
+		(#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<!-- 반려견 가입 -->
+	<insert id="puppyInsert">
+		INSERT INTO cafe_puppymember(pmid, pmname, pmcharacter, pmspecies, pmage, pmbirth) VALUES
+		(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6})
+	</insert>
+	<!-- 로그인Ok -->
+	<select id="loginOk" resultType="int">
+		SELECT COUNT(*) FROM cafe_member WHERE mid=#{param1} and mpw=#{param2}
+	</select>
+	<!-- 회원정보수정 내용보기-->
+	<select id="memberModify" resultType="com.puppycafe.root.Dto.MemberDto">
+		SELECT * FROM cafe_member WHERE mid=#{param1}
+	</select>
+	<select id="pmemberModify" resultType="com.puppycafe.root.Dto.PMemberDto">
+		SELECT * FROM cafe_puppymember WHERE pmid=#{param1}
+	</select>
+	<!-- 회원정보수정완료 -->
+	<update id="memberModifyOk" >
+		UPDATE cafe_member SET mpw=#{param2}, mname=#{param3}, 
+		mphone=#{param4} WHERE mid=#{param1}
+	</update>
+	<update id="puppyModifyOk">
+		UPDATE cafe_puppymember SET pmname=#{param2}, pmcharacter=#{param3}, pmspecies=#{param4},
+		pmage=#{param5}, pmbirth=#{param6} WHERE pmid=#{param1}
+	</update>
+	
+	
+	<!--  게시판 글쓰기 -->
+	<insert id="boardInsertOk">
+		INSERT INTO CAFE_FREEBOARD(bnum, bid, btitle, bcontent, bhit) VALUES
+		(cafe_freeboard_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	<!--  게시판 글목록보기 -->
+	<select id="boardList" resultType="com.puppycafe.root.Dto.BoardDto">
+		SELECT * FROM
+			(SELECT A.*,Floor((ROWNUM-1)/#{amount}+1)PAGE,ROWNUM
+			FROM
+			(SELECT * FROM CAFE_FREEBOARD ORDER BY bnum DESC)A) 
+		WHERE PAGE= #{pageNum}
+	</select>
+	<!--  게시판 글내용보기 -->
+	<select id="contentView" resultType="com.puppycafe.root.Dto.BoardDto">
+		SELECT * FROM CAFE_FREEBOARD WHERE bnum=#{param1}
+	</select>
+	<!--  게시판 글내용 수정 -->
+	<update id="boardModifyOk">
+		UPDATE CAFE_FREEBOARD SET btitle=#{param2}, bcontent=#{param3}
+		WHERE bnum=#{param1}
+	</update>
+	<!-- 날짜별 예약 현황 -->
+	<select id="reservedInfo" resultType="com.puppycafe.root.Dto.ReservedDto">
+		SELECT * FROM CAFE_RESERVED WHERE rdate = #{param1}
+	</select>
+
+	<!-- 게시판 전체 글 수 -->
+	<select id="boardAllCount" resultType="int">
+		SELECT	count(*) FROM CAFE_FREEBOARD
+	</select>
+	<!-- 예약 상세보기 견 종류  -->
+	<select id="reserved" resultType="com.puppycafe.root.Dto.ReservedViewDto">
+		select a.rstarthour,b.psspeciesname,count(b.psspeciesname)puppycount 
+			from cafe_reserved a 
+			join cafe_puppyspecies b 
+			on a.rspeciesnum=b.psnum
+			where a.rdate =#{param1}
+			group by a.rstarthour,b.psspeciesname
+			order by a.rstarthour
+	</select>
+	<!-- 달력 예약현황 가져오기 -->
+	<select id="ReservedCell" resultType="com.puppycafe.root.Dto.ReservedCellDto">
+	 
+	select substr(rdate,-2) as day,
+			rstarthour,
+ 			count(rstarthour)amount 
+	from CAFE_RESERVED 
+	where rdate like #{param1}||'%' 
+	group by substr(rdate,-2),rstarthour
+	order by rstarthour
+	</select>
+	<!-- 예약하기 -->
+	<insert id="cafeReserved">
+		INSERT INTO cafe_reserved(rnum,rid,rdate,rstarthour,rendhour,rspeciesnum) 
+		VALUES(CAFE_RESERVED_SEQ.nextval, #{param1}, #{param2}, #{param3}, #{param4}, (select PMSPECIES from cafe_puppymember where pmid = #{param1} ))
+	</insert>
+	<select id="dbcheck" resultType="int">
+		select count(*) from cafe_reserved where rid = #{param1} and rstarthour=#{param2}
+	</select>
+	
+	<select id="dbhour" resultType="int">
+		select rstarthour from cafe_reserved where rid = #{param1}
+	</select>
+	
+	
+</mapper>

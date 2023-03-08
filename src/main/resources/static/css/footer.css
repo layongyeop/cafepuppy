@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+tr.footerline01 {
+	height: 70px;
+}
+
+tr.footerline02 {
+	/*background: linear-gradient(90deg, #051937, #112C55, #234372, #3C5D8E, #5B7BAB);*/
+	background: linear-gradient(90deg, #5B7BAB, #3C5D8E , #112C55, #3C5D8E, #5B7BAB);	
+	height: 30px;
+}
+
+td.footerbox01 {	
+	font-size: 20px;
+	color: #F6EEC9;
+	font-family: Arial;
+	text-align: center;
+	
+}
+
+td.footerbox02 {	
+	font-size: 20px;
+	color: #eedf9b;
+	font-family: Arial;
+	text-align: center;
+}

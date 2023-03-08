@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+span.title01 {
+	font-size: 50px;
+	color: #051937;
+	font-family: Arial;
+	font-family: Gulim;
+	font-weight: bold;
+}
+
+span.title02 {
+	font-size: 35px;
+	color: #234372;
+	font-family: Arial;
+	font-family: Gulim;
+	font-weight: bold;
+}
+
+span.title03 {
+	font-size: 30px;
+	color: #234372;
+	font-family: Arial;
+	font-weight: bold;
+	font-family: Gulim;
+	text-align: center;
+}
+
+span.title04 {
+	font-size: 30px;
+	color: #DCE5F2;
+	font-family: Arial;
+	font-weight: bold;
+	font-family: Gulim;
+	
+	
+}
+
+td.skillbox {
+	background-color: #A2B3CD;
+	text-align: center;	
+}
+
+td.skillbox2 {
+	background-color: #A2B3CD;
+		
+}
+
+td.picbox {
+	background-color: white;
+	text-align: center;
+	
+}
+
+td.titlebox {
+	text-align: center;
+}
+
+td.mapinfo{
+	font-size: 30px;
+	color: #051937;
+	font-family: Arial;
+	font-family: Gulim;
+	font-weight: bold;
+	text-align: center;
+	padding-bottom: 15px;
+	
+}
+
+img.img{
+	width: 200px;
+	height: 200px;
+	
+}
+
+td.imgtitle{
+	background-color: #234372;
+	text-align: center;
+	border: 0px;
+	height: 80px;
+}
+
+span.title05{
+	color: white;
+	font-size: 40px;
+	font-family: Arial;
+	font-family: Gulim;
+	font-weight: bold;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
