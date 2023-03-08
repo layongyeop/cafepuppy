@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/title.css">
 <meta charset="UTF-8">
-<title>HOME</title>
+<title>PUPPY CAFE</title>
 
 </head>
 <body style="background-color: #D2DBE9">

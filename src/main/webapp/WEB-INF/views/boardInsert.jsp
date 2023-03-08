@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/title.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content.css">
 <script type="text/javascript" src="${pageContext.request.contextPath }/resources/js/board.js"></script>
-<title>** Gyojin's Profile **</title>
+<title>PUPPY CAFE</title>
 </head>
 <body>	
 	<%@ include file="include/header.jsp" %>

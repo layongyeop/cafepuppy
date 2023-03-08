@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/title.css">
-<title>** Gyojin's Profile **</title>
+<title>PUPPY CAFE</title>
 </head>
 <body style="background-color: #D2DBE9">
 	<%@ include file="include/header.jsp" %>

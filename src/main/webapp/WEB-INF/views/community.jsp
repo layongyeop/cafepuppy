@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/title.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/content.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/board.css">
-<title>** Gyojin's Profile **</title>
+<title>PUPPY CAFE</title>
 </head>
 <body style="background-color: #D2DBE9">
    <%@ include file="include/header.jsp" %>

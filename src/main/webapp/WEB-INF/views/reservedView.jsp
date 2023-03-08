@@ -9,7 +9,7 @@
  <head>
  <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/reservedcal.css">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>calendar</title>
+  <title>PUPPY CAFE</title>
 
  </head>
  <body>
